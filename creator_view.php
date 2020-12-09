@@ -29,7 +29,7 @@
 		
 		if(is_null($x))
 		{
-		header("location: base.php?xx=69");
+		header("location: index.php?xx=69");
 		}		
 
 		$cr_id=$_SESSION["id"]; 
@@ -46,7 +46,8 @@
 
        while($row = mysqli_fetch_array($result))  
 		    { 
-		       // CODE FOR VIEWING CLIPS
+			   // CODE FOR VIEWING CLIPS
+			   echo "Title: ".$row['title']." - "."Genre: ".$row['genre']."</br>";
 		    }
 
       ?>  

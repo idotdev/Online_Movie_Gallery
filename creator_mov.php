@@ -6,28 +6,31 @@ $con = new mysqli('localhost', 'root', '', 'mov_gallery');
 $x=$_SESSION["id"];
 $y=$_SESSION["name"];
 
- if(isset($_POST["insert"]))  
- {          
-      $title=$_POST['title'];
-      $genre=$_POST['genre'];
-      $year=$_POST['year'];
-      $type=$_POST['type']; 
-      $price=$_POST['price'];          
-      $likes=0;
-      $sold=0;
-      $file = addslashes(file_get_contents($_FILES["vid"]["tmp_name"])); // somehow need to insert movie clip here 
-      $query = "insert into clips values ('$x','$title','$genre','$type',$likes,'$year','$price','$sold','$file')";
+if(isset($_POST["insert"]))  
+{          
+	$title=$_POST['title'];
+	$genre=$_POST['genre'];
+	$year=$_POST['year'];
+	$type=$_POST['type']; 
+	$price=$_POST['price'];          
+	$likes=0;
+	$sold=0;
+	$filename = $_FILES['vid']['name'];
+	move_uploaded_file($_FILES['vid']['tmp_name'], "videos/".$filename);
+// unlink("videos/".$filename); # for deleting a file from folder
+	$query = "insert into clips (cr_id, title, genre, type, price, year, likes, sold, filename) values('$x','$title','$genre','$type',$price,'$year','$likes','$sold','$filename')";
 
-       if(mysqli_query($con,$query))  
-          {  
-            echo '<script>alert("Clip Inserted into Database!")</script>';           
-          }
-       else
-          {
-            echo '<script>alert("Error!")</script>';
-          }
+	if(mysqli_query($con,$query))  
+	{  
+		echo '<script>alert("Clip Inserted into Database!")</script>';           
+	}
+	else
+	{
+		// echo '<script>alert("Error!")</script>';
+		echo("Error description: " . mysqli_error($con));
+	}
 
- }  
+}  
 
  ?>
 <!DOCTYPE html>
@@ -67,22 +70,22 @@ h3,h4
 }
 </style>
 	<form method="post" enctype="multipart/form-data">
-       <h4 style="margin-left: 5px;">Fill in all the following details.</h4>
-       <input type="text" name="title" placeholder="Title" required style="margin: 5px;"> 
-       <br />
-       <input type="text" name="genre" placeholder="Genre" required style="margin: 5px;"> 
-       <br />
-       <input type="number" name="year" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;" required placeholder="Year" style="margin: 5px;"/>
-       <br />
-       <input type="text" name="type" placeholder="Type" required style="margin: 5px;">
-       <br/>
-       <input type="file" name="vid" id="vid" required style="margin: 5px; margin-bottom: -10px;">  
-       <br />
-       <input type="number" name="price" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==7) return false;" required placeholder="Price(INR)" style="margin: 5px; margin-bottom: -10px;"/> 
-       <br />
-       <br /> 
-       <input type="submit" name="insert" id="insert" value="UPLOAD" style="margin: 5px;" /> 
-    </form>
+	   <h4 style="margin-left: 5px;">Fill in all the following details.</h4>
+	   <input type="text" name="title" placeholder="Title" required style="margin: 5px;"> 
+	   <br />
+	   <input type="text" name="genre" placeholder="Genre" required style="margin: 5px;"> 
+	   <br />
+	   <input type="number" name="year" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;" required placeholder="Year" style="margin: 5px;"/>
+	   <br />
+	   <input type="text" name="type" placeholder="Type" required style="margin: 5px;">
+	   <br/>
+	   <input type="file" name="vid" id="vid" required style="margin: 5px; margin-bottom: -10px;">  
+	   <br />
+	   <input type="number" name="price" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==7) return false;" required placeholder="Price(INR)" style="margin: 5px; margin-bottom: -10px;"/> 
+	   <br />
+	   <br /> 
+	   <input type="submit" name="insert" id="insert" value="UPLOAD" style="margin: 5px;" /> 
+	</form>
 
 </body>
 </html>
