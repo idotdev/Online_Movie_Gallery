@@ -73,7 +73,7 @@ if(isset($_POST['submit']))
 }
 if(isset($_POST['bacc']))
 {
-	header('location: base.php');
+	header('location: index.php');
 } 
 ?>
 </body>
