@@ -72,7 +72,7 @@ button:hover
 		<button name="view_ar" id="v" class="block">VIEW MY CLIPS</button>   
 		<button name="wallet" class="block">VIEW MY E-WALLET</button>
 		<button name="sup" class="block">SUPPORT ARTISTS</button>
-		<button name="acc" class="block">EDIT ACCOUNT INFO</button>  
+		<button name="acc" class="block">VIEW/EDIT ACCOUNT INFO</button>  
 		<button name="home_ar" class="block2">HOME PAGE</button>
 	</form>
 
