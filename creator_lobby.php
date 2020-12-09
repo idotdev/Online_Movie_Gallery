@@ -61,8 +61,12 @@ button:hover
 </style>
 <body>
 <button name="upload" class="block" onclick="upload()">UPLOAD CLIPS</button>
-<button name="view" id="v" class="block" onclick="view()">VIEW MY CLIPS</button>
+<button name="view" id="v" class="block" onclick="view()">VIEW MY CLIPS</button> 
 <button name="home" class="block "onclick="home()">GO TO THE HOME PAGE</button>
+
+<form method="post">
+<button name="acc" class="block">EDIT ACCOUNT INFO</button> 	
+</form>
 
 <?php
 
@@ -92,6 +96,17 @@ if(is_null($row2))
 
 ?>
 
+<?php
+
+if(isset($_POST['acc']))
+	{
+		header("location:creator_edit.php");
+		#exit();
+		#session_close();
+	}
+
+?>
+
 <script type="text/javascript">
 	function upload()
 	{
@@ -99,7 +114,7 @@ if(is_null($row2))
 		exit();
 		session_close();
 	}
-	   
+   
 	function view()
 	{
 		window.location="creator_view.php?x=1";
