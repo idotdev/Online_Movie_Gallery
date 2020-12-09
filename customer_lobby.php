@@ -14,7 +14,7 @@ $result=mysqli_query($con,$query);
 
 $row = mysqli_fetch_assoc($result);
 {
-    if($row["c_id"]==$x)
+    if($row["c_name"]==$y)
     {
         echo "<h3>Welcome, ".$y."</h3>";
 
