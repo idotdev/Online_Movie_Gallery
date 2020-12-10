@@ -11,6 +11,9 @@
   padding: 14px 28px;
   margin-bottom: 3px;
   cursor: pointer;
+  position : relative;
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
 }
 .blocked {
   width: 250px;
@@ -21,6 +24,15 @@
 body
 {
 	background-image: url('clou.jpeg');
+  width: 50%;
+  border: 3px solid grey;
+  padding: 380px 470px 395px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
+
 }
 h3
 {
@@ -42,7 +54,7 @@ button:hover
 	<form method="post">
 		<h3>Welcome to Next-Flix!(Working Title)</h3>
 		<h3 style="margin-top: -10px;">A place where you share your creations to the world!</h3>
-		<button name="admin" class="blocked">ADMINISTATOR</button>
+		<button name="admin" class="block">ADMINISTATOR</button>
 		<button name="creator" class="block">CREATOR</button>
 		<button name="customer" class="block">CUSTOMER</button>
 	</form>
