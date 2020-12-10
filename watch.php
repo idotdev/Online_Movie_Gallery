@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>EXPLORE CLIPS</title>	 
+	<title>WATCH CLIPS</title>	 
 	<meta name="viewport" content="width=device=width, initial-scale=1.0">   
 </head>
 <body>
@@ -22,17 +22,14 @@
 	<?php
 		session_start();
 
-		$x=$_GET['x'];
-
-		$xx=$_SESSION['id'];
-		$yy=$_SESSION['name'];
+		$id=$_GET['id'];
 		
-		if(is_null($x))
-		{
-		header("location: index.php?xx=69");
-		}		
+		// if(is_null($x))
+		// {
+		// header("location: index.php?xx=69");
+		// }		
 
-		$cr_id=$_SESSION["id"]; 
+		$cr_id=$_SESSION["id"];
 
 		$con = new mysqli('localhost', 'root', '', 'mov_gallery');
 		if(!$con)
@@ -41,13 +38,13 @@
 		}	
 
 
-       $query = "SELECT * FROM clips ORDER BY title DESC ";  
+       $query = "SELECT * FROM clips where vid_id='$id'";  
        $result = mysqli_query($con, $query);
 
        while($row = mysqli_fetch_array($result))  
 		    { 
 			   // CODE FOR VIEWING CLIPS
-			   echo "<a href='purchase.php?id=".$row['vid_id']."'>".$row['title']." - ".$row['genre']."</a></br>";
+			   echo "<video autoplay controls height=540px width=960px type='video/mp4' src='videos/".$row['filename']."'></video>";
 		    }
 
       ?>  

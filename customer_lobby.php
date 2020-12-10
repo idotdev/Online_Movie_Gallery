@@ -78,7 +78,7 @@ button:hover
 
 <?php
 
-$query2 = "SELECT * FROM purchase where cr_id='$x' ";  
+$query2 = "SELECT * FROM purchase where c_id='$x' ";  
 $result2 = mysqli_query($con, $query2);
 $row2 = mysqli_fetch_array($result2);
 

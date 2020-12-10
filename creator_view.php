@@ -47,7 +47,7 @@
        while($row = mysqli_fetch_array($result))  
 		    { 
 			   // CODE FOR VIEWING CLIPS
-			   echo "Title: ".$row['title']." - "."Genre: ".$row['genre']."</br>";
+			   echo "<a href='watch.php?id=".$row['vid_id']."'>".$row['title']." - ".$row['genre']."</a></br>";
 		    }
 
       ?>  
