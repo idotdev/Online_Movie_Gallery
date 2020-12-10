@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 01, 2020 at 05:14 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 10, 2020 at 07:39 AM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,7 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin_mc`
 --
 
-CREATE TABLE `admin_mc` (
+DROP TABLE IF EXISTS `admin_mc`;
+CREATE TABLE IF NOT EXISTS `admin_mc` (
   `ad_id` varchar(10) DEFAULT NULL,
   `ad_key` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -46,7 +46,9 @@ INSERT INTO `admin_mc` (`ad_id`, `ad_key`) VALUES
 -- Table structure for table `clips`
 --
 
-CREATE TABLE `clips` (
+DROP TABLE IF EXISTS `clips`;
+CREATE TABLE IF NOT EXISTS `clips` (
+  `vid_id` int(20) NOT NULL AUTO_INCREMENT,
   `cr_id` varchar(10) DEFAULT NULL,
   `title` varchar(50) DEFAULT NULL,
   `genre` varchar(50) DEFAULT NULL,
@@ -55,16 +57,18 @@ CREATE TABLE `clips` (
   `year` varchar(4) DEFAULT NULL,
   `likes` varchar(20) DEFAULT NULL,
   `sold` varchar(20) DEFAULT NULL,
-  `url` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `filename` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`vid_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clips`
 --
 
-INSERT INTO `clips` (`cr_id`, `title`, `genre`, `type`, `price`, `year`, `likes`, `sold`, `url`) VALUES
-('36702', 'Crimes of Love', 'action', 'Anime', '0', '2017', '1000', '0', '‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\n\0\0f\0\0\0²é\0\0\0sRGB\0®Îé\0\0\0gAMA\0\0±üa\0\0\0	pHYs\0\0t\0\0tÞfx\0\0s‰IDATx^íœMåþÿÓ9Ý¤~R§‹äœtr*RRTˆPÊ%!Mã:%!÷$Iî$É8BŽâ…\\r(i”ÜÓ»!1˜»™13>ÿõ]{?fÍ²ÖÚkïuÙkïý}÷z^™µ×ÚÏZÏó}¾Ïg¯õ]ß§†a†at`¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°P`†aF\nÃ0ÃèÂBa†a]X(0Ã0£†a†ata¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°P`†aF\nÃ0ÃèÂBa†a]X(0Ã0£†a†ata¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°P`†aF\nÃ0ÃèÂBa†a]X(0Ã0£†a†ata¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°P`†aF\nÃ0ÃèÂBa†a]X(0Ã0£†a†ata¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°P`†aF\nÃ0ÃèÂBa†a]X(0Ã0£†a†ata¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°P`†aF\nÃ0ÃèÂBa†a]X(0Ã0£†a†ata¡À0Ã0Œ.,†a†Ñ……Ã0Ã0º°Pð\0[¶lÁ„	¸páÂ…K—ÄÄDdddøgïÀBÁ\\sÍ5¨[·..\\¸p‰ÁR­Z5y8xð fð,<\0	2†a&6Y»v-F\nÃ0±\rÆ\nÃ0±\rÆ\nŒUÔ±ûöíóÂ0L$ÀB1„…c…;wbäÈ‘²\r‰2eÊìÝ»×¿Ã0^‡…cÆ\nÍš5C=üùÐÚÆ0Œwa¡ÀÂB	…ÌÌL<ùä“˜1cŽ=êßêãÀ=z4:vìèßÂ0Œ—a¡ÀÂB	…´´4T¬X‹-’ÿNNNÆË/¿ŒÔÔTùo¶+†‰X(0†°CgBA-ÔŽ†íŠa\"\nŒ!ìÐ™PÈÊÊBëÖ­åÀEr2dGÂÑˆ\0GŽS`˜È€…cÆ\n¸XªT)¹GÃÁŒY°P`a¡ÀXûôé#…'),
-('36702', 'Crimes of Love', 'action', 'Anime', '0', '2017', '1000', '0', '');
+INSERT INTO `clips` (`vid_id`, `cr_id`, `title`, `genre`, `type`, `price`, `year`, `likes`, `sold`, `filename`) VALUES
+(3, '171870', 'Batman', 'Superhero', 'Picture', '2500', '2016', '0', '0', 'batman-dark-art_1576093361.jpg'),
+(5, '171870', 'BvS', 'Superhero, Action', '4K Video', '2500', '2016', '0', '0', 'Batman Vs superman Fight Part 1 - Batman v Superman_ Dawn of Justice Movie Clip (2017) 4K ULTRA HD.webm'),
+(6, '171870', 'Valorant Clip', 'Game', 'Short Clip', '0', '2020', '0', '0', 'VALORANT   2020-11-29 20-16-05.mp4');
 
 -- --------------------------------------------------------
 
@@ -72,13 +76,16 @@ INSERT INTO `clips` (`cr_id`, `title`, `genre`, `type`, `price`, `year`, `likes`
 -- Table structure for table `creator`
 --
 
-CREATE TABLE `creator` (
+DROP TABLE IF EXISTS `creator`;
+CREATE TABLE IF NOT EXISTS `creator` (
   `cr_id` varchar(10) NOT NULL,
   `cr_name` varchar(50) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `country` varchar(50) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
-  `donations` varchar(10) DEFAULT NULL
+  `donations` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`cr_id`),
+  UNIQUE KEY `phone` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,7 +93,8 @@ CREATE TABLE `creator` (
 --
 
 INSERT INTO `creator` (`cr_id`, `cr_name`, `gender`, `country`, `phone`, `donations`) VALUES
-('114572', 'Gokul R', 'male', 'India', '8610137050', '0'),
+('114572', 'Gokul R', 'male', 'India', '8610137050', '500'),
+('171870', 'Vinay', 'Male', 'India', '1234567890', '1026547851'),
 ('36702', 'lumi', 'Female', 'India', '8610137051', '20');
 
 -- --------------------------------------------------------
@@ -95,12 +103,14 @@ INSERT INTO `creator` (`cr_id`, `cr_name`, `gender`, `country`, `phone`, `donati
 -- Table structure for table `customer`
 --
 
-CREATE TABLE `customer` (
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE IF NOT EXISTS `customer` (
   `c_id` varchar(8) NOT NULL,
   `c_name` varchar(20) DEFAULT NULL,
   `address` varchar(60) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
-  `cost` varchar(10) DEFAULT NULL
+  `cost` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -118,7 +128,8 @@ INSERT INTO `customer` (`c_id`, `c_name`, `address`, `phone`, `cost`) VALUES
 -- Table structure for table `purchase`
 --
 
-CREATE TABLE `purchase` (
+DROP TABLE IF EXISTS `purchase`;
+CREATE TABLE IF NOT EXISTS `purchase` (
   `title` varchar(50) DEFAULT NULL,
   `year` varchar(10) DEFAULT NULL,
   `genre` varchar(30) DEFAULT NULL,
@@ -129,21 +140,12 @@ CREATE TABLE `purchase` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `purchase`
 --
 
---
--- Indexes for table `creator`
---
-ALTER TABLE `creator`
-  ADD PRIMARY KEY (`cr_id`),
-  ADD UNIQUE KEY `phone` (`phone`);
-
---
--- Indexes for table `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`c_id`);
+INSERT INTO `purchase` (`title`, `year`, `genre`, `cr_id`, `price`, `c_id`, `c_name`) VALUES
+('', '', '', '', '', '', ''),
+('', '', '', '', '', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
