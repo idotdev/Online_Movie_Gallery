@@ -51,92 +51,59 @@ h3,h4
 
 	<form method="post">
 	<h3>Enter the Creator name you would like to donate to:</h3>
-	<input type="text" id="d_name" class="block00" name="d_name">
+	<input type="text" id="cr_name" class="block00" name="cr_name">
 	<h3>How much would you like to donate to them?</h3>
-	<input type="number" id="balance" class="block00" name="balance">
+	<input type="number" id="amount" class="block00" name="amount">
 	<input type="submit" id="sub" class="block00" name="submit" value="SUBMIT">
 	</form>
 
 
 	<?php
 	ini_set( "display_errors", 0); 
+	$c_id=$_SESSION['id'];
 
+	$query = "select * from customer where c_id = '$c_id'";
+	$res = mysqli_query($conn, $query);
+	$row = mysqli_fetch_assoc($res);
+	$balance = $row['balance'];
+	
 	if(isset($_POST['submit']))
 	{
-		$d_name=$_POST['d_name'];
-		$balance=$_POST['balance'];
-
-		if($balance!=0)
+		$cr_name=$_POST['cr_name'];
+		$amount=$_POST['amount'];
+		$check = mysqli_query($conn, "select * from creator where cr_name = '$cr_name'");
+		if(mysqli_num_rows($check) > 0) 
 		{
-			$conn = new mysqli('localhost', 'root', '', 'mov_gallery');
-			$sql="UPDATE creator set donations=donations+'$balance' where cr_name='$d_name'";
-			$result=mysqli_query($conn,$sql);
-			$row=mysqli_fetch_assoc($result);
-
-			if(!is_null($row['donations']))
+			if($amount > 0 and $amount <= $balance)
 			{
-				echo '<h3>Thanks for your support!</h3>';
+				$sql="UPDATE creator set donations=donations+'$amount' where cr_name='$cr_name'";
+				$result=mysqli_query($conn,$sql);
+				if($result)
+				{
+					echo "<script>alert('Thank you for your support!');</script>";
+					header("Refresh:0");
+				}
+				$deduct = "UPDATE customer SET balance=balance-'$amount' WHERE c_id='$c_id'";
+				$res_deduct = mysqli_query($conn, $deduct);
 			}
+			elseif($amount > 0 and $amount > $balance)
+			{
+				echo "<script>alert('Not enough balance!');</script>";
+			}
+			elseif($amount <= 0)
+			{
+				echo "<script>alert('Enter a proper amount to donate!');</script>";
+			}
+			header("Refresh:0");
 		}
-
+		elseif(mysqli_num_rows($check) <= 0)
+		{
+			echo "<script>alert('Creator does not exist');</script>";
+			header("Refresh:0");
+		}
 	}
-
-	?>
-
-	<?php
-
-	$c_id=$_SESSION["id"];	
-
-	$sql2="select balance from customer where c_id='$c_id' ";
-	$result2=mysqli_query($conn,$sql2);
-
-	$row = mysqli_fetch_assoc($result2);
-	echo "<h4>Current Account balance: ".$row['balance']."</h4>";
-
-	?>
-
-	<input type="button" name="bacc" id="bacc" class="block00" onclick="bacc()" value="BACK" style="margin-top: 5px;">
-
-	<script>
-
-	function bacc()
-	{
-		<?php
-
-		$x=$_SESSION['id'];
-		$y=$_SESSION['name'];
+	echo "<h4>Current Account balance: ".$balance."</h4>";
 	
-		?>
-
-	    var x = "<?php echo $x ?>";
-	    var y = "<?php echo $y ?>";
-
-	    window.location="customer_lobby.php?x="+x+"&y="+y+"";
-	}
-
-	$(document).ready(function(){
-
-				$("#sub").click(function(){
-
-					var balance = document.getElementById('balance').value;
-					var d_name=document.getElementById('d_name').value;
-
-                    $.ajax({
-                        url:'d_wallet.php',
-                        method:'POST',
-                        data:{
-                            balance:balance,
-                            d_name:d_name
-                        },
-                        success:function(response){
-                            alert(response);
-                           
-                        }
-                    });
-                });
-            });
-
-	</script>
-
+	?>
 </body>
 </html>
