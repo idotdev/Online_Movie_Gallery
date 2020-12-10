@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `c_name` varchar(20) DEFAULT NULL,
   `address` varchar(60) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
-  `cost` varchar(10) DEFAULT NULL,
+  `balance` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `c_name`, `address`, `phone`, `cost`) VALUES
+INSERT INTO `customer` (`c_id`, `c_name`, `address`, `phone`, `balance`) VALUES
 ('18001', 'BORO', 'London', '+918610137061', '80'),
 ('55719', 'Kyu', 'Sinnoh', '8610137050', '0'),
 ('71514', 'G', 'A', '123456789', '0');

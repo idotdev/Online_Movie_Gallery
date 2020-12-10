@@ -62,7 +62,7 @@ button:hover
 <body>
 <button name="upload" class="block" onclick="upload()">UPLOAD CLIPS</button>
 <button name="view" id="v" class="block" onclick="view()">VIEW MY CLIPS</button> 
-<button name="home" class="block "onclick="home()">GO TO THE HOME PAGE</button>
+<button name="home" class="block "onclick="home()">GO TO THE HOME PAGE (LOGOUT?)</button>
 
 <form method="post">
 <button name="acc" class="block">EDIT ACCOUNT INFO</button> 	

@@ -34,9 +34,9 @@
     $result = mysqli_query($con, $query);
 
     $query2 = "SELECT sum(price),count(title) FROM purchase where a_id='$zx'";
-         $sum_cost=mysqli_query($con,$query2);
+         $sum_balance=mysqli_query($con,$query2);
 
-         while($row = mysqli_fetch_array($sum_cost))
+         while($row = mysqli_fetch_array($sum_balance))
          {
           echo "<h4>TOTAL RS. SPENT: ".$row['sum(price)']."</h4>";
           echo "<h4>NO. OF ARTWORKS BOUGHT: ".$row['count(title)']."</h4>";

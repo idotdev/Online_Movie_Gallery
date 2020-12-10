@@ -32,7 +32,7 @@ h3,h4
 </style>
 	<form method="post">
 	<h3>HOW WOULD LIKE TO DEPOSIT TO YOUR E-WALLET?</h3>
-	<input type="number" id="cost" class="block00" name="cost">
+	<input type="number" id="balance" class="block00" name="balance">
 	<input type="submit" id="sub" class="block00" name="Submit" value="SUBMIT">
 	</form>
 
@@ -42,11 +42,11 @@ h3,h4
 	$c_id=$_SESSION["id"];	
 
 	$con = new mysqli('localhost', 'root', '', 'mov_gallery');
-	$sql2="select cost from customer where c_id='$c_id' ";
+	$sql2="select balance from customer where c_id='$c_id' ";
 	$result2=mysqli_query($con,$sql2);
 	$row = mysqli_fetch_assoc($result2);
 
-	echo "<h4>Current Account balance: ".$row['cost']."</h4>";
+	echo "<h4>Current Account balance: ".$row['balance']."</h4>";
 
 	?>
 
@@ -56,13 +56,13 @@ h3,h4
 
 				$("#sub").click(function(){
 
-					var cost = document.getElementById('cost').value;
+					var balance = document.getElementById('balance').value;
 
                     $.ajax({
                         url:'wallet.php',
                         method:'POST',
                         data:{
-                            cost:cost
+                            balance:balance
                         },
                         success:function(response){
                             alert(response);

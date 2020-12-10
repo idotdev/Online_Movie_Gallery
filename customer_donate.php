@@ -53,7 +53,7 @@ h3,h4
 	<h3>Enter the Creator name you would like to donate to:</h3>
 	<input type="text" id="d_name" class="block00" name="d_name">
 	<h3>How much would you like to donate to them?</h3>
-	<input type="number" id="cost" class="block00" name="cost">
+	<input type="number" id="balance" class="block00" name="balance">
 	<input type="submit" id="sub" class="block00" name="submit" value="SUBMIT">
 	</form>
 
@@ -64,12 +64,12 @@ h3,h4
 	if(isset($_POST['submit']))
 	{
 		$d_name=$_POST['d_name'];
-		$cost=$_POST['cost'];
+		$balance=$_POST['balance'];
 
-		if($cost!=0)
+		if($balance!=0)
 		{
 			$conn = new mysqli('localhost', 'root', '', 'mov_gallery');
-			$sql="UPDATE creator set donations=donations+'$cost' where cr_name='$d_name'";
+			$sql="UPDATE creator set donations=donations+'$balance' where cr_name='$d_name'";
 			$result=mysqli_query($conn,$sql);
 			$row=mysqli_fetch_assoc($result);
 
@@ -87,11 +87,11 @@ h3,h4
 
 	$c_id=$_SESSION["id"];	
 
-	$sql2="select cost from customer where c_id='$c_id' ";
+	$sql2="select balance from customer where c_id='$c_id' ";
 	$result2=mysqli_query($conn,$sql2);
 
 	$row = mysqli_fetch_assoc($result2);
-	echo "<h4>Current Account balance: ".$row['cost']."</h4>";
+	echo "<h4>Current Account balance: ".$row['balance']."</h4>";
 
 	?>
 
@@ -118,14 +118,14 @@ h3,h4
 
 				$("#sub").click(function(){
 
-					var cost = document.getElementById('cost').value;
+					var balance = document.getElementById('balance').value;
 					var d_name=document.getElementById('d_name').value;
 
                     $.ajax({
                         url:'d_wallet.php',
                         method:'POST',
                         data:{
-                            cost:cost,
+                            balance:balance,
                             d_name:d_name
                         },
                         success:function(response){

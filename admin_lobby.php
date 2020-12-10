@@ -43,6 +43,8 @@ h3,h4
 	<button class=block0 name="del_cr">DELETE CREATORS</button>
 	<br>
 	<button class=block0 name="del_c">DELETE CUSTOMERS </button>
+	<br>
+	<button class=block0 name="logout">LOGOUT </button>
 	</form>	
 
 <?php
@@ -62,6 +64,11 @@ if(isset($_POST['view_c']))
 if(isset($_POST['view_cr']))
 {
 	header('location: view_creator.php');
+}
+
+if(isset($_POST['logout']))
+{
+	header('location: index.php');
 }
 
 ?>

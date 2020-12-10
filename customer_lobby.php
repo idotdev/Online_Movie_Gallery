@@ -73,7 +73,7 @@ button:hover
 		<button name="wallet" class="block">VIEW MY E-WALLET</button>
 		<button name="sup" class="block">SUPPORT ARTISTS</button>
 		<button name="acc" class="block">VIEW/EDIT ACCOUNT INFO</button>  
-		<button name="home_ar" class="block2">HOME PAGE</button>
+		<button name="home_ar" class="block2">HOME PAGE (LOGOUT?)</button>
 	</form>
 
 <?php
@@ -93,7 +93,7 @@ if(is_null($row2))
 	<?php
 	if(isset($_POST['ex_ar']))
 	{
-		header("location:customer_explore.php?");
+		header("location:customer_explore.php?x=69");
 	}
 
 	if(isset($_POST['view_ar']))

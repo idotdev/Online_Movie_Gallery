@@ -4,25 +4,25 @@ session_start();
 
 $conn = new mysqli('localhost', 'root', '', 'mov_gallery');
 
-$cost=$_POST['cost'];
+$balance=$_POST['balance'];
 $d_name=$_POST['d_name'];
 $c_id=$_SESSION["id"];
 
-if($cost<=0)
+if($balance<=0)
 {
 	echo 'Please enter a valid amount';
 }
 
 else
 {
-	$sql0="SELECT cost from customer";
-	$sql="UPDATE customer SET cost=cost-'$cost' WHERE c_id='$c_id' ";
+	$sql0="SELECT balance from customer";
+	$sql="UPDATE customer SET balance=balance-'$balance' WHERE c_id='$c_id' ";
 	$sql2="SELECT cr_name from creator where cr_name='$d_name'";
 
 	$result0=mysqli_query($conn,$sql0);
 	$row0=mysqli_fetch_assoc($result0);
 
-	if($row0['cost']<$cost)
+	if($row0['balance']<$balance)
 	{
 		echo 'Low Account Balance';
 	}

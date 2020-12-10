@@ -117,12 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$c_name=$_POST['c_name'];
 		$address=$_POST['address'];
 		$phone=$_POST['phone'];
-		$cost=0;
+		$balance=0;
 
 		echo '<h4>CUSTOMER ID: '.$c_id.'</h4>';
 		echo '<h4>Remember this, as it is required to login in.</h4>';
 
-		$query="insert into customer(c_id,c_name,address,phone,cost) values ('$c_id','$c_name','$address','$phone','$cost')";
+		$query="insert into customer(c_id,c_name,address,phone,balance) values ('$c_id','$c_name','$address','$phone','$balance')";
 
 		if(mysqli_query($con,$query))  
       	{  
