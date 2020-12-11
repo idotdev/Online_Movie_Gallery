@@ -6,6 +6,21 @@
 </head>
 <body>
 	<style type="text/css">
+		table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 		.responsive {
   			width: 100%;
   			max-width: 400px;
@@ -14,6 +29,10 @@
 		h3,h4
 		{
 			font-family: cambria;
+		}
+		body
+		{
+  			background-image: url('clou.jpeg');
 		}
 		
 	</style>
@@ -44,11 +63,29 @@
        $query = "SELECT * FROM clips ORDER BY title DESC ";  
        $result = mysqli_query($con, $query);
 
+       echo '<table>';
+			   echo'
+			   <tr>
+    			<th>Genre</th>
+    			<th>Hyperlink</th>   					 
+  				</tr>';
        while($row = mysqli_fetch_array($result))  
 		    { 
-			   // CODE FOR VIEWING CLIPS
-			   echo "<a href='purchase.php?id=".$row['vid_id']."'>".$row['title']." - ".$row['genre']."</a></br>";
+			  
+			   echo '  
+		          <tr>
+		          	 <td>
+		          	     '.$row['genre'].' 
+		             <td>
+		             ';  
+		    echo "<a href='watch.php?id=".$row['vid_id']."'>".$row['title']."</a></br>";
+		    
+		    echo '</td> 
+		          </tr> ';
+		            
+		       
 		    }
+		    echo '</table>';
 
       ?>  
 </body>
