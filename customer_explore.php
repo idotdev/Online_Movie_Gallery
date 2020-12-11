@@ -21,6 +21,10 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+body
+{
+  background-image: url('clou.jpeg');
+}
 		.responsive {
   			width: 100%;
   			max-width: 400px;
@@ -29,10 +33,6 @@ tr:nth-child(even) {
 		h3,h4
 		{
 			font-family: cambria;
-		}
-		body
-		{
-  			background-image: url('clou.jpeg');
 		}
 		
 	</style>
@@ -69,22 +69,18 @@ tr:nth-child(even) {
     			<th>Genre</th>
     			<th>Hyperlink</th>   					 
   				</tr>';
+
        while($row = mysqli_fetch_array($result))  
 		    { 
-			  
 			   echo '  
-		          <tr>
-		          	 <td>
-		          	     '.$row['genre'].' 
-		             <td>
-		             ';  
-		    echo "<a href='watch.php?id=".$row['vid_id']."'>".$row['title']."</a></br>";
-		    
-		    echo '</td> 
-		          </tr> ';
-		            
-		       
+                  <tr>
+                     <td>
+                         '.$row['genre'].' 
+                     <td>
+                     '; 
+			   echo "<a href='purchase.php?id=".$row['vid_id']."'>".$row['title']." - ".$row['genre']."</a></br>";
 		    }
+
 		    echo '</table>';
 
       ?>  
