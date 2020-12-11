@@ -39,10 +39,10 @@ h3,h4
 	<button class=block0 name="view_cr">VIEW CREATOR DETAILS</button>
 	<br>
 	<button class=block0 name="view_c">VIEW CUSTOMER DETAILS</button>
-	<br>
+	<!-- <br>
 	<button class=block0 name="del_cr">DELETE CREATORS</button>
 	<br>
-	<button class=block0 name="del_c">DELETE CUSTOMERS </button>
+	<button class=block0 name="del_c">DELETE CUSTOMERS </button> -->
 	<br>
 	<button class=block0 name="logout">LOGOUT </button>
 	</form>	
