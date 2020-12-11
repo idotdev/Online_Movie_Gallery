@@ -95,11 +95,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<h3>Create an Account. Quick and Easy</h3>
+	<input type="email" name="email" class="block0" placeholder="EMAIL"><span></span>
+	<br>
 	<input type="text" name="c_name" class="block0" placeholder="CUSTOMER NAME"><span><?php echo $nameErr;?></span>
 	<br>
-	<input type="text" name="address" class="block0" placeholder="ADDRESS"><span><?php echo $adErr;?></span>
+	<input type="text" name="address" class="block0" placeholder="COUNTRY"><span><?php echo $adErr;?></span>
 	<br>
 	<input type="number" name="phone" class="block0" placeholder="PHONE NO."><span><?php echo $teleErr;?></span>
+	<br>
+	<input type="password" name="pass" class="block0" placeholder="PASSWORD"><span></span>
 	<br>
 	<button name="submit" class="block2">SUBMIT</button>
 	<br>
@@ -117,12 +121,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$c_name=$_POST['c_name'];
 		$address=$_POST['address'];
 		$phone=$_POST['phone'];
+		$email=$_POST['email'];
+		$password=$_POST['pass'];
 		$balance=0;
 
 		echo '<h4>CUSTOMER ID: '.$c_id.'</h4>';
 		echo '<h4>Remember this, as it is required to login in.</h4>';
 
-		$query="insert into customer(c_id,c_name,address,phone,balance) values ('$c_id','$c_name','$address','$phone','$balance')";
+		$query="insert into customer(c_id,email,password,c_name,address,phone,balance) values ('$c_id','$email','$password','$c_name','$address','$phone','$balance')";
 
 		if(mysqli_query($con,$query))  
       	{  

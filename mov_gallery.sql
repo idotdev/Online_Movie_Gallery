@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 11, 2020 at 04:12 AM
+-- Generation Time: Dec 11, 2020 at 06:39 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -81,23 +81,27 @@ INSERT INTO `clips` (`vid_id`, `cr_id`, `title`, `genre`, `type`, `price`, `year
 DROP TABLE IF EXISTS `creator`;
 CREATE TABLE IF NOT EXISTS `creator` (
   `cr_id` varchar(10) NOT NULL,
+  `email` varchar(20) DEFAULT NULL,
+  `password` varchar(10) NOT NULL,
   `cr_name` varchar(50) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `country` varchar(50) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
   `donations` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`cr_id`),
-  UNIQUE KEY `phone` (`phone`)
+  UNIQUE KEY `phone` (`phone`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `creator`
 --
 
-INSERT INTO `creator` (`cr_id`, `cr_name`, `gender`, `country`, `phone`, `donations`) VALUES
-('10000', 'v', 'Male', 'India', '1234567890', '1024100'),
-('114572', 'Gokul R', 'male', 'India', '8610137050', '1000'),
-('36702', 'lumi', 'Female', 'India', '8610137051', '100');
+INSERT INTO `creator` (`cr_id`, `email`, `password`, `cr_name`, `gender`, `country`, `phone`, `donations`) VALUES
+('10000', 'v@gmail.com', '12345', 'v', 'Male', 'India', '1234567890', '1024100'),
+('114572', 'gokul@asdf.com', 'gokul', 'Gokul R', 'male', 'India', '8610137050', '1000'),
+('137189', 'asdf@asdf.com', 'asdf', 'asdf', 'Female', 'India', '1236543214', '0'),
+('36702', 'lumi@asdf.com', 'lumi', 'lumi', 'Female', 'India', '8610137051', '100');
 
 -- --------------------------------------------------------
 
@@ -108,21 +112,25 @@ INSERT INTO `creator` (`cr_id`, `cr_name`, `gender`, `country`, `phone`, `donati
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE IF NOT EXISTS `customer` (
   `c_id` varchar(8) NOT NULL,
+  `email` varchar(25) DEFAULT NULL,
+  `password` varchar(10) NOT NULL,
   `c_name` varchar(20) DEFAULT NULL,
   `address` varchar(60) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
   `balance` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`c_id`)
+  PRIMARY KEY (`c_id`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `c_name`, `address`, `phone`, `balance`) VALUES
-('10000', 'v', 'Earth', '1234567890', '42920'),
-('18001', 'BORO', 'London', '+918610137061', '80'),
-('55719', 'Kyu', 'Sinnoh', '8610137050', '0');
+INSERT INTO `customer` (`c_id`, `email`, `password`, `c_name`, `address`, `phone`, `balance`) VALUES
+('10000', 'v@gmail.com', '12345', 'v', 'Earth', '1234567890', '43000'),
+('18001', 'boro@asdf.com', 'boro', 'BORO', 'London', '+918610137061', '80'),
+('27888', 'asdf@asdf.com', 'asdf', 'ASDF', 'India', '1232123454', '0'),
+('55719', 'kyu@asdf.com', 'kyurem', 'Kyu', 'Sinnoh', '8610137050', '0');
 
 -- --------------------------------------------------------
 
