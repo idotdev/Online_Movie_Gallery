@@ -12,8 +12,7 @@
   margin-bottom: 3px;
   cursor: pointer;
   position : relative;
-  -ms-transform: translateX(50%);
-  transform: translateX(50%);
+  
 }
 .blocked {
   width: 250px;
@@ -21,17 +20,18 @@
   margin-bottom: 3px;
   cursor: pointer;
 }
+html {
+    display: table;
+    margin: auto;
+}
+html, body {
+    height: 100%;
+}
 body
 {
 	background-image: url('clou.jpeg');
-  width: 50%;
-  border: 3px solid grey;
-  padding: 380px 470px 395px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
 
 }
 h3
@@ -43,6 +43,11 @@ button
 	border-radius: 10px;
 	font-family:Cambria;
 	font-size: 16px;
+  margin: 0;
+  position: absolute;
+  left: 25%;
+ 
+  
 }
 button:hover
 {
@@ -52,8 +57,8 @@ button:hover
 </style>
 <body>
 	<form method="post">
-		<h3>Welcome to Next-Flix!(Working Title)</h3>
-		<h3 style="margin-top: -10px;">A place where you share your creations to the world!</h3>
+		<h3 style = "text-align:center">Welcome to Next-Flix!(Working Title)</h3>
+		<h3 style="margin-top: -10px;text-align:center">A place where you share your creations to the world!</h3>
 		<button name="admin" class="block">ADMINISTATOR</button>
 		<button name="creator" class="block">CREATOR</button>
 		<button name="customer" class="block">CUSTOMER</button>
