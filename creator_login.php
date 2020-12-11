@@ -24,9 +24,18 @@ if(isset($_GET['fn']))
   margin-top: 4px;
   cursor: pointer;
 }
+html, body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
 input
 {
 	border-radius: 10px;
+	display: grid;
+  	place-items: center;
 }	
 input:hover
 {
@@ -35,6 +44,8 @@ input:hover
 body
 {
 	background-image: url('clou.jpeg');
+	vertical-align: middle;
+	display: table-cell;
 }
 button
 {
@@ -62,7 +73,7 @@ h3,h4
 		<button name="submit" class="block2" onclick="f_id()">FORGET ID</button>	
 		</div>
 		<h4>New User? Sign up below</h4>
-		<button name="submit" class="block" style="margin-top: -12px;" onclick="u_sign()">SIGN UP</button>		
+		<button style='margin-left:50px' name="submit" class="block" style="margin-top: -12px;" onclick="u_sign()">SIGN UP</button>		
 	</form>
 	
 	

@@ -73,7 +73,7 @@ h3,h4
 	<button name="submit" class="block2"onclick="f_id()">FORGET ID</button>
 	</form>
 	<h4>New User? Sign up below:</h4>
-	<button name="submit" style="margin-top: -12px;" class="block" onclick="u_sign()">SIGN UP</button>
+	<button style='margin-left:50px' name="submit" style="margin-top: -12px;" class="block" onclick="u_sign()">SIGN UP</button>
 	<?php
 
 	if(isset($_GET['fn']))
