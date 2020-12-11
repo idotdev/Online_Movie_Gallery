@@ -98,6 +98,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<input type="text" name="cr_name" class="block0" placeholder="NAME" value="<?php echo $name;?>"><span><?php echo $nameErr;?></span>
 	<br>
+	<input type="email" name="email" class="block0" placeholder="EMAIL"><span></span>
+	<br>
 	<p>Select your gender:</p>
   	<input type="radio" id="male" name="gender" value="Male">
   	<label for="male">Male</label><br>
@@ -110,6 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<input type="text" name="country" class="block0" placeholder="COUNTRY"><span><?php echo $cErr;?></span>
 	<br>
 	<input type="number" name="phone" class="block0" placeholder="PHONE NO." value="<?php echo $tele;?>"><span><?php echo $teleErr;?></span>
+	<br>
+	<input type="password" name="pass" class="block0" placeholder="PASSWORD"><span></span>
 	<br>
 	<button name="submit" class="block2">SUBMIT</button>
 	<br>
@@ -129,12 +133,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$gender=$_POST['gender'];
 		$country=$_POST['country'];
 		$phone=$_POST['phone'];
+		$email=$_POST['email'];
+		$password=$_POST['pass'];
 		$donations=0;
 
 		echo '<h4>CREATOR ID: '.$cr_id.'</h4>';
 		echo '<h4>Remember this, as it is required to login in. *Can be later edited in account settings </h4>';
 		
-		$query="insert into creator values ('$cr_id','$cr_name','$gender','$country','$phone','$donations')";
+		$query="insert into creator values ('$cr_id','$email','$password','$cr_name','$gender','$country','$phone','$donations')";
 
 		if(mysqli_query($con,$query))  
       	{  
