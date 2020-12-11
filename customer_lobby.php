@@ -73,7 +73,7 @@ button:hover
 		<button name="wallet" class="block">VIEW MY E-WALLET</button>
 		<button name="sup" class="block">SUPPORT ARTISTS</button>
 		<button name="acc" class="block">VIEW/EDIT ACCOUNT INFO</button>  
-		<button name="home_ar" class="block2">HOME PAGE (LOGOUT?)</button>
+		<button name="home_ar" class="block2">LOGOUT</button>
 	</form>
 
 <?php
