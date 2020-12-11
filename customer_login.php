@@ -16,14 +16,26 @@
   margin-bottom: 3px;
   margin-top: 4px;
   cursor: pointer;
-}			
+}
+html, body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
 body
 {
 	background-image: url('clou.jpeg');
+	vertical-align: middle;
+	display: table-cell;
+
 }
 input
 {
 	border-radius: 10px;
+	display: grid;
+  	place-items: center;
 }	
 input:hover
 {
@@ -54,9 +66,9 @@ h3,h4
 </style>
 <body>
 	<form method="get" action="customer_lobby.php">
-	<h3>Customer Log-in</h3>
-	<input type="text" name="x" class="block" placeholder="CUSTOMER ID" required>
-	<input type="password" name="y" class="block" placeholder="PASSWORD" required>
+	<h3 style = "text-align: center">Customer Log-in</h3>
+	<input style = "text-align: center" type="text" name="x" class="block" placeholder="CUSTOMER ID" required>
+	<input style = "text-align: center" type="password" name="y" class="block" placeholder="PASSWORD" required>
 	<button name="submit" class="block2">LOGIN</button>
 	<button name="submit" class="block2"onclick="f_id()">FORGET ID</button>
 	</form>
