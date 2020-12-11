@@ -14,9 +14,9 @@ $result=mysqli_query($con,$query);
 
 $row = mysqli_fetch_assoc($result);
 {
-    if($row["c_name"]==$y)
+    if($row["password"]==$y)
     {
-        echo "<h3>Welcome, ".$y."</h3>";
+        echo "<h3>Welcome, ".$row['c_name']."</h3>";
 
     }
     else
@@ -73,7 +73,7 @@ button:hover
 		<button name="wallet" class="block">VIEW MY E-WALLET</button>
 		<button name="sup" class="block">SUPPORT ARTISTS</button>
 		<button name="acc" class="block">VIEW/EDIT ACCOUNT INFO</button>  
-		<button name="home_ar" class="block2">HOME PAGE (LOGOUT?)</button>
+		<button name="home_ar" class="block2">LOGOUT</button>
 	</form>
 
 <?php

@@ -56,7 +56,7 @@ h3,h4
 	<form method="get" action="creator_lobby.php">
 		<h3>Creator Log-in</h3>
 		<input type="text" name="x" class="block" placeholder="CREATOR ID" required>
-		<input type="text" name="y" class="block" placeholder="CREATOR NAME" required>
+		<input type="password" name="y" class="block" placeholder="PASSWORD" required>
 		<div style="display: inline-block">
 		<button name="submit" class="block2">LOGIN</button>
 		<button name="submit" class="block2" onclick="f_id()">FORGET ID</button>	

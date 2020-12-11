@@ -56,7 +56,7 @@ h3,h4
 	<form method="get" action="customer_lobby.php">
 	<h3>Customer Log-in</h3>
 	<input type="text" name="x" class="block" placeholder="CUSTOMER ID" required>
-	<input type="text" name="y" class="block" placeholder="CUSTOMER NAME" required>
+	<input type="password" name="y" class="block" placeholder="PASSWORD" required>
 	<button name="submit" class="block2">LOGIN</button>
 	<button name="submit" class="block2"onclick="f_id()">FORGET ID</button>
 	</form>
