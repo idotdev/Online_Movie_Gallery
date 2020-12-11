@@ -57,7 +57,7 @@ button:hover
 </style>
 <body>
 	<form method="post">
-		<h3 style = "text-align:center">Welcome to Next-Flix!(Working Title)</h3>
+		<h3 style = "text-align:center">Welcome to Online Movie Gallery</h3>
 		<h3 style="margin-top: -10px;text-align:center">A place where you share your creations to the world!</h3>
 		<button name="admin" class="block">ADMINISTATOR</button>
 		<button name="creator" class="block">CREATOR</button>
