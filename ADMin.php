@@ -1,5 +1,5 @@
 <?php
-echo('<h3>ADMIN MASTER CONTROL</h3>');
+echo('<h3 style = "text-align:center">ADMIN MASTER CONTROL</h3>');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,9 +15,18 @@ echo('<h3>ADMIN MASTER CONTROL</h3>');
 .block {
   padding: 5px 10px;
 }
+html {
+    display: table;
+    margin: auto;
+}
+html, body {
+    height: 100%;
+} 
 body
 {
 	background-image: url('clou.jpeg');
+  vertical-align: middle;
+  display: table-cell;
 }
 input
 {
@@ -28,10 +37,16 @@ button
 {
   border: 2px solid grey;
   border-radius: 10px;
+  
 }
 button:hover
 {
   transform: scale(1.02);
+}
+input{
+  display: grid;
+  place-items: center;
+  
 }
 </style>
 	
@@ -40,7 +55,7 @@ button:hover
 <br>
 <input class="block0" type="password" name="y" placeholder="KEY">
 <br>
-<button class="block" name="submit">SUBMIT</button>
+<button style='margin-right:30px' class="block" name="submit">SUBMIT</button>
 <button class="block" name="bacc">BACK</button>
 <?php
 if(isset($_POST['submit']))
