@@ -46,10 +46,10 @@ $nameErr=$teleErr="";
 $name=$tele="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["a_name"])) {
+  if (empty($_POST["cr_name"])) {
     $nameErr = " *  Name is required";
   } else {
-    $name = test_input($_POST["a_name"]);
+    $name = test_input($_POST["cr_name"]);
     if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
       $nameErr = " *  Only letters and white space allowed";
     }
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	  if(mysqli_query($con,$query))  
       	{
-      		if(is_null($row['a_id']))
+      		if(is_null($row['cr_id']))
       		{
       		  echo '<script>alert("Error! Account not found. Check details once again.")</script>'; 
       		}  
