@@ -32,8 +32,8 @@ h3,h4
 </style>
 	<form method="post">
 	<h3>HOW WOULD LIKE TO DEPOSIT TO YOUR E-WALLET?</h3>
-	<input type="number" id="balance" class="block00" name="balance">
-	<input type="submit" id="sub" class="block00" name="Submit" value="SUBMIT">
+	<input type="number" id="amount" class="block00" name="amount">
+	<input type="submit" id="sub" class="block00" name="submit" value="SUBMIT">
 	</form>
 
 	<?php
@@ -47,32 +47,26 @@ h3,h4
 	$row = mysqli_fetch_assoc($result2);
 
 	echo "<h4>Current Account balance: ".$row['balance']."</h4>";
+	
+	if(isset($_POST['submit']))
+	{
+		$amount=$_POST['amount'];
+		if($amount > 0) 
+		{
+			$sql="UPDATE customer SET balance=balance+'$amount' WHERE c_id='$c_id'";
+			if(mysqli_query($con, $sql))
+			{
+				echo "<script>alert('Amount added!');</script>";
+				header("Refresh:0");
+			}
+		}
+		elseif($amount <= 0)
+		{
+			echo "<script>alert('Enter a valid amount');</script>";
+		}
+	}
 
 	?>
-
-	<script>
-
-	$(document).ready(function(){
-
-				$("#sub").click(function(){
-
-					var balance = document.getElementById('balance').value;
-
-                    $.ajax({
-                        url:'wallet.php',
-                        method:'POST',
-                        data:{
-                            balance:balance
-                        },
-                        success:function(response){
-                            alert(response);
-                           
-                        }
-                    });
-                });
-            });
-
-	</script>
 
 </body>
 </html>

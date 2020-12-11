@@ -14,9 +14,9 @@ $result=mysqli_query($con,$query);
 
 $row = mysqli_fetch_assoc($result);
 {
-    if($row["cr_name"]==$y)
+    if($row["password"]==$y)
     {
-        echo "<h3>Welcome, ".$y."</h3>";          
+        echo "<h3>Welcome, ".$row['cr_name']."</h3>";          
     }
     else
     {
@@ -62,12 +62,10 @@ button:hover
 <body>
 <button name="upload" class="block" onclick="upload()">UPLOAD CLIPS</button>
 <button name="view" id="v" class="block" onclick="view()">VIEW MY CLIPS</button> 
-<button name="home" class="block "onclick="home()">LOGOUT</button>
-
 <form method="post">
 <button name="acc" class="block">EDIT ACCOUNT INFO</button> 	
 </form>
-
+<button name="home" class="block "onclick="home()">LOGOUT</button>
 <?php
 
 $sql3="SELECT donations from creator where cr_id='$x'";
